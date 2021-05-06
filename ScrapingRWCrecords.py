@@ -15,7 +15,7 @@ df = pd.DataFrame(columns=columns)
 
 for i in range(1,len(rows)):
     tds = rows[i].find_all('td')
-    values = [td.text.replace('\n','').replace('\xa0','').replace('—','0') for td in tds]
+    values = [td.text.replace('\n','').replace('\xa0','').replace('—','0').replace('−', '')  for td in tds]
     
     df = df.append(pd.Series(values, index=columns), ignore_index=True)
 
